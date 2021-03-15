@@ -16,3 +16,5 @@ H2 database:
 Connect to debug/view:
 https://localhost:8443/h2-ui/
 JDBC URL: jdbc:h2:mem:testdb
+
+There is a [Postman](https://www.postman.com/) collection in /resources/ This can be used to test the CRUD REST endpoint without the need for a frontend application.

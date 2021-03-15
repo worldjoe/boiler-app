@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "575fa04e-55dc-4822-bc6c-2d287b57ba9f",
+		"name": "Boiler-app",
+		"description": "Postman request for the boiler plate template",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Create Document",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "53fddebe-b587-4310-9a18-076dea206d21",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"content\": \"Joey rocks\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/v1/documents",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"v1",
+								"documents"
+							]
+						},
+						"description": "Call the Documents endpoint to retrieve all the documents from the server."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3acfd7bf-9801-4bc7-95e4-7682c41d8da9",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"https://localhost:8443/v1/documents\",",
+									"    method: 'GET'",
+									"}, function (err, res) {",
+									"    console.log(res.json());",
+									"    pm.environment.set(\"document_id\", res.json().documents[0].id)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/v1/documents/{{document_id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"v1",
+								"documents",
+								"{{document_id}}"
+							]
+						},
+						"description": "Call the Documents endpoint to retrieve all the documents from the server."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "563b8055-0eac-4cac-ab17-d3bf127056e9",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"https://localhost:8443/v1/documents\",",
+									"    method: 'GET'",
+									"}, function (err, res) {",
+									"    console.log(res.json());",
+									"    pm.environment.set(\"document_id\", res.json().documents[0].id)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/v1/documents/{{document_id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"v1",
+								"documents",
+								"{{document_id}}"
+							]
+						},
+						"description": "Call the Documents endpoint to retrieve all the documents from the server."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Documents",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "844fed73-22ff-4423-bbaa-f0c9059862b8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/v1/documents",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"v1",
+								"documents"
+							]
+						},
+						"description": "Call the Documents endpoint to retrieve all the documents from the server."
+					},
+					"response": []
+				}
+			],
+			"description": "API requests for Documents",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2ed003a1-b1fa-4fb4-bff6-41083f9dc364",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c37d6f4a-c95c-4220-b497-b1ad3b3b8b6c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
