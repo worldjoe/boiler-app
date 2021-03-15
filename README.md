@@ -4,6 +4,8 @@ This is a Java Spring Boot starter that implements a REST api for a simple CRUD 
 
 For the front end, you can use this sample [React Application](https://github.com/worldjoe/boiler)
 
+This repo has been setup with [Github Actions](https://github.com/worldjoe/boiler-app/actions) to automatically build and test pr's and pushes to master.
+
 This was generated using the Spring Initializer:
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.4.3.RELEASE&packaging=jar&jvmVersion=11&groupId=net.singleclick&artifactId=boiler-app&name=boiler-app&description=Crud%20Demo%20project%20for%20Spring%20Boot&packageName=net.singleclick.boiler-app&dependencies=web,lombok,devtools,data-jpa,h2
 
