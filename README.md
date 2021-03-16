@@ -18,3 +18,10 @@ https://localhost:8443/h2-ui/
 JDBC URL: jdbc:h2:mem:testdb
 
 There is a [Postman](https://www.postman.com/) collection in /resources/ This can be used to test the CRUD REST endpoint without the need for a frontend application.
+
+Jenkins setup
+```docker pull jenkins/jenkins:lts
+docker run -p 8081:8080  -p 50000:50000  --name my-jenkins -v jenkins_data:/var/jenkins_home jenkins/jenkins:lts
+```
+Then Load http://localhost:8081 and paste in the password from the output of the last command.
+
