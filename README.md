@@ -26,3 +26,24 @@ Jenkins setup
 docker run -p 8081:8080  -p 50000:50000  --name my-jenkins -v jenkins_data:/var/jenkins_home jenkins/jenkins:lts
 ```
 Then Load http://localhost:8081 and paste in the password from the output of the last command.
+Be sure to create a password for the admin user.
+Open a terminal connected to your docker, we need to upgrade the JDK
+used to compile the service.
+
+
+Install the suggested plugins, then go to "Manage Jenkins", then "Manage
+plugins", then click on Available and find "AdoptOpenJDK installer "
+andd install it and select the options to install without restart.
+Then goto http://localhost:8081/configureTools/ and Add JDK and use
+the adopt openjdk selecting version 13.0.2+8 
+
+
+Then create a Pipeline job and under Advanced Project Options select
+"Pipeline Script from SCM" in the dropdown, select "Git", and put this github url  https://github.com/worldjoe/boiler-app.git
+
+Docker Setup
+```docker build -t springio/gs-spring-boot-docker .```
+Then run it:
+```docker run -p 8443:8443 springio/gs-spring-boot-docker```
+Debugging the docker:
+```docker run -e "JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 8443:8443 -p 5005:5005 -t springio/gs-spring-boot-docker```

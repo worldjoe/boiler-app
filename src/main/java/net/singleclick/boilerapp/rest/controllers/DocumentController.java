@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "v1/documents", produces = { MediaType.APPLICATION_JSON_VALUE })
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "https://singleclick.net:3000/"})
 @Tag(name = "documents")
 public class DocumentController {
 
